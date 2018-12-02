@@ -1,24 +1,34 @@
 package com.company;
 
-public class FaceDrawing extends Main {
-    private String replace;
-    private int row;
-    private int column;
-    public FaceDrawing(String replace, int row, int column) {
+public class FaceDrawing {
+    private String[][] faceFeatures;
 
-this.replace = replace;
-this.row = row;
-this.column = column;
+    public FaceDrawing(String[][] faceFeatures){
+        this.faceFeatures = faceFeatures;
+    }
 
+    public void fill(String str){
+        for (int x = 0; x< faceFeatures.length; x++){
+            for (int y = 0; y < faceFeatures[x].length; y++){
+                faceFeatures[x][y] = str;
+            }
+        }
     }
-    public String getReplace(){
-        return replace;
+
+    public void edit(String replace, int row, int column){
+        faceFeatures[row][column] = replace;
     }
-    public int getrow(){
-        return row;
+
+    public String toString(){
+        String output = "";
+        for(int i = 0; i< faceFeatures.length; i++){
+            for (int n = 0; n< faceFeatures[i].length; n ++){
+                output = output + faceFeatures[i][n];
+            }
+            output+= '\n';
+        }
+        return output;
     }
-    public int getcolumn(){
-        return column;
-    }
+
 
 }
